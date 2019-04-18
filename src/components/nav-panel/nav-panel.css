@@ -1,0 +1,7 @@
+.nav-panel__row {
+  align-items: flex-start;
+}
+
+.nav-panel__radio {
+  margin-right: 20px !important;
+}
