@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './search-panel.css';
 
 const SearchPanel = ({ onSearch }) => {
-
-  // onSubmit = (e) => {
-  //   e.preventDefault();
-  //   this.props.onAdd(this.state.label);
-  //   this.setState({
-  //     label: '',
-  //   })
-  // }
 
   return (
     <div className="field is-marginless search-panel">
