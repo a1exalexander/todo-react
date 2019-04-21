@@ -107,7 +107,7 @@ export default class App extends Component {
     } else {
       switch(filter) {
         case 'important':
-          return todoData.filter(el => el.important && !el.done);
+          return todoData.filter(el => el.important);
         case 'done':
           return todoData.filter(el => el.done);
         case 'active':
@@ -129,13 +129,15 @@ export default class App extends Component {
     const countTodos = this.state.todoData
       .filter(el => !el.done).length;
     const countImportant = this.state.todoData
-      .filter(el => el.important && !el.done).length;
+      .filter(el => el.important).length;
     const countDone = this.state.todoData
       .filter(el => el.done).length;
+    const countActive = this.state.todoData
+      .filter(el => !el.done).length;
 
     const filterTodos = this.onFilteredTodos();
 
-    const count = { countTodos, countImportant, countDone };
+    const count = { countTodos, countImportant, countDone, countActive };
 
     const { isLoading, filter } = this.state;
   
