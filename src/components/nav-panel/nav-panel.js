@@ -65,7 +65,7 @@ export default class NavPanel extends Component {
             </p>
             <p className="control">
               <button
-                className="button is-small is-primary">
+                className="button is-small is-primary nav-panel__add-button">
                 <span className="icon is-small">
                   <i className="fas fas fa-plus" />
                 </span>

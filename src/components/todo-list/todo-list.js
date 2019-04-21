@@ -103,7 +103,10 @@ export default class TodoList extends Component {
             <a
               href="#"
               className={importantButton}
-              onClick={() => onImportant(id)}>
+              onClick={(e) => {
+                e.preventDefault();
+                onImportant(id)
+              }}>
               <span className={importantIcon}>
                 <i className="fas fa-exclamation" />
               </span>
@@ -112,7 +115,10 @@ export default class TodoList extends Component {
             <a
               href="#"
               className={doneButton}
-              onClick={() => onDone(id)}>
+              onClick={(e) => {
+                e.preventDefault();
+                onDone(id)
+              }}>
               <span className={doneIcon}>
                 <i className="fas fa-check" />
               </span>

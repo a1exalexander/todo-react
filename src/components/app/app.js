@@ -104,12 +104,18 @@ export default class App extends Component {
       return todoData.filter((item) => {
         return item.label.toLowerCase().indexOf(search.toLowerCase()) !== -1;
       })
-    } else if (filter === 'important') {
-      return todoData.filter(el => el.important && !el.done);
-    } else if (filter === 'done') {
-      return todoData.filter(el => el.done);
+    } else {
+      switch(filter) {
+        case 'important':
+          return todoData.filter(el => el.important && !el.done);
+        case 'done':
+          return todoData.filter(el => el.done);
+        case 'active':
+          return todoData.filter(el => !el.done);
+        default:
+          return todoData;
+      }
     }
-    return todoData;
   }
 
   onSearch = (chars) => {

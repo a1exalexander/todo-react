@@ -15,12 +15,14 @@ export default class RadioPanel extends Component {
     const defaultIcon = 'icon is-small';
 
     const allStyle = `${defaultButton} ${filter === 'all'?'is-info':''}`;
+    const activeStyle = `${defaultButton} ${filter === 'active'?'is-danger':''}`;
     const importantStyle = `${defaultButton} ${filter === 'important'?'is-warning':''}`;
     const doneStyle = `${defaultButton} ${filter === 'done'?'is-success':''}`;
 
     const iconAll = `${defaultIcon} ${filter === 'all'?'':'has-text-info'}`;
     const iconImportant = `${defaultIcon} ${filter === 'important'?'':'has-text-warning'}`;
     const iconDone = `${defaultIcon} ${filter === 'done'?'':'has-text-success'}`;
+    const iconActive = `${defaultIcon} ${filter === 'active'?'':'has-text-danger'}`;
 
     return (
       <div className="field has-addons radio-panel">
@@ -32,6 +34,16 @@ export default class RadioPanel extends Component {
               <i className="fas fa-clipboard-list" />
             </span>
             <span>All</span>
+          </button>
+        </p>
+        <p className="control">
+          <button
+            className={activeStyle}
+            onClick={() => onFilter('active')}>
+            <span className={iconActive}>
+              <i className="fas fa-hourglass-half" />
+            </span>
+            <span>Active</span>
           </button>
         </p>
         <p className="control">

@@ -19,8 +19,10 @@ input:focus-within {
   }
 }
 
-
 @media screen and (max-width: 1023px) {
+  input {
+    font-size: 16px !important;
+  }
   .root-box__box {
     padding: 0 !important;
     border: none !important;
