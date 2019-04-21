@@ -101,7 +101,7 @@ export default class TodoList extends Component {
           </div>
           <footer className="card-footer">
             <a
-              href="#"
+              href
               className={importantButton}
               onClick={(e) => {
                 e.preventDefault();
@@ -113,7 +113,7 @@ export default class TodoList extends Component {
               <span className={importantText}>Important</span>
             </a>
             <a
-              href="#"
+              href
               className={doneButton}
               onClick={(e) => {
                 e.preventDefault();

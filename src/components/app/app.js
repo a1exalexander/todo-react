@@ -58,7 +58,8 @@ export default class App extends Component {
 
   addItem = (label = 'Drink coffee') => {
     this.setState(({ todoData }) => {
-      const newArr = [ ...todoData, this.createTodoItem(label) ];
+      const newArr = [ ...todoData ];
+      newArr.unshift(this.createTodoItem(label));
       return {
         todoData: newArr,
       };
