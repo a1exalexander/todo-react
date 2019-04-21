@@ -5,7 +5,7 @@ import './add-button.css';
 const AddButton = ({ label, type, onAdd, loading }) => {
 
   const load = loading? 'is-loading': '';
-  const classStyle = `button add-button ${type} ${load}`;
+  const classStyle = `button is-small add-button ${type?type:''} ${load}`;
 
 	return (
 		<button

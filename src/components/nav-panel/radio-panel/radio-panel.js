@@ -11,7 +11,7 @@ export default class RadioPanel extends Component {
       onFilter,
     } = this.props;
 
-    const defaultButton = 'button';
+    const defaultButton = 'button is-small';
     const defaultIcon = 'icon is-small';
 
     const allStyle = `${defaultButton} ${filter === 'all'?'is-info':''}`;

@@ -40,7 +40,13 @@
 }
 
 .nav-panel__form {
-  margin-bottom: 24px !important;
+  margin: 0 0 24px 0 !important;
+}
+
+.nav-panel__add-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 @media screen and (min-width: 1024px) {
@@ -48,7 +54,7 @@
     flex-direction: row;
   }
   .nav-panel {
-    padding: 0 5%;
+    padding: 0;
   }
   .nav-panel__row:first-child {
     margin-bottom: 0;
@@ -61,5 +67,12 @@
     flex-direction: row;
     width: auto;
     align-items: center;
+  }
+  .nav-panel__add-box {
+    flex-direction: row;
+  }
+  .nav-panel__form {
+    flex: 1 1;
+    margin: 0 16px 0 0 !important;
   }
 }

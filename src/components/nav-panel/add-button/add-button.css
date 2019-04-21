@@ -1,3 +1,13 @@
 .add-button:first-child {
   margin-right: 16px;
 }
+.add-button {
+  width: 100%;
+  align-self: flex-end;
+}
+
+@media screen and (min-width: 1024px) {
+  .add-button {
+    width: auto;
+  }
+}

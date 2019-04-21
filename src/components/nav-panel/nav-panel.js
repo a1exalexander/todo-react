@@ -41,7 +41,7 @@ export default class NavPanel extends Component {
     const { label } = this.state;
 
     return (
-      <div className="nav-panel">
+      <div className="container nav-panel">
         <nav className="nav-panel__nav">
           <div className="nav-panel__inner">
             <SearchPanel onSearch={onSearch}/>
@@ -51,21 +51,21 @@ export default class NavPanel extends Component {
             <RadioPanel onFilter={onFilter} filter={filter}/>
           </div>
         </nav>
-        <div>
+        <div className='nav-panel__add-box'>
           <form
             className="field has-addons nav-panel__form"
             name='addForm'
             onSubmit={this.onSubmit}>
             <p className="control search-panel__input">
               <input
-                className="input"
+                className="input is-small"
                 type="text" placeholder="Todo..."
                 onChange={this.onLabelChange}
                 value={label}/>
             </p>
             <p className="control">
               <button
-                className="button is-primary">
+                className="button is-small is-primary">
                 <span className="icon is-small">
                   <i className="fas fas fa-plus" />
                 </span>
@@ -74,7 +74,6 @@ export default class NavPanel extends Component {
             </p>
           </form>
           <AddButton
-            type='is-info'
             label='New random todo (by Fetch)'
             loading={isLoading}
             onAdd={onRandomAdd}/>

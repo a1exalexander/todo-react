@@ -4,6 +4,17 @@
   transition-timing-function: ease !important;
 }
 
+input:focus,
+input:focus-within {
+  box-shadow: none !important;
+}
+
 .root-box {
   padding: 24px;
+}
+
+@media screen and (min-width: 1024px) {
+  .root-box {
+    padding: 0;
+  }
 }
