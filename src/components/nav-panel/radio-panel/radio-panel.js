@@ -41,7 +41,7 @@ export default class RadioPanel extends Component {
             <span className={iconImportant}>
               <i className="fas fa-exclamation" />
             </span>
-            <span>Active</span>
+            <span>Important</span>
           </button>
         </p>
         <p className="control">

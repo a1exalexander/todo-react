@@ -18,3 +18,12 @@ input:focus-within {
     padding: 0;
   }
 }
+
+
+@media screen and (max-width: 1023px) {
+  .root-box__box {
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}

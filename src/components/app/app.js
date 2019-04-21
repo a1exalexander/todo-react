@@ -145,7 +145,7 @@ export default class App extends Component {
           filter={filter}
           onSearch={this.onSearch}/>
         <div className="container root-box">
-          <div className="box">
+          <div className="box root-box__box">
             <TodoList
               todos={filterTodos}
               onDeleted={this.deleteItem}
