@@ -1,14 +1,22 @@
 import React from 'react';
 
-const PostCount = () => {
+import './post-count.css';
+
+const PostCount = ({ countTodos, countDone, countImportant }) => {
 	return (
-    <div className='level'>
-      <p className="subtitle is-5">
-        <strong>123</strong> posts
-      </p>
-      <p className="subtitle is-5">
-        <strong>2</strong> done
-      </p>
+    <div className='post-count'>
+      <div className="tags has-addons post-count__label">
+        <span className="tag is-marginless">Todos</span>
+        <span className="tag is-marginless is-info">{ countTodos }</span>
+      </div>
+      <div className="tags has-addons post-count__label">
+        <span className="tag is-marginless">Important</span>
+        <span className="tag is-marginless is-warning">{ countImportant }</span>
+      </div>
+      <div className="tags has-addons post-count__label">
+        <span className="tag is-marginless">Done</span>
+        <span className="tag is-marginless is-success">{ countDone }</span>
+      </div>
     </div>
 	);
 };

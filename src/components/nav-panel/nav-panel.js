@@ -1,33 +1,85 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import SearchPanel from './search-panel';
 import PostCount from './post-count';
+import AddButton from './add-button';
 import RadioPanel from './radio-panel';
 
 import './nav-panel.css';
 
-const NavPanel = () => {
-	return (
-		<nav className="is-flex-mobile container level nav-panel">
-			<div className="level-left">
-				<div className="level-item">
-          <SearchPanel />
-				</div>
-				<div className="level-item">
-					<PostCount />
-				</div>
-			</div>
-			<div className="level-right nav-panel__row">
-				<RadioPanel />
-        <button class="button is-primary">
-					<span class="icon is-small">
-						<i class="fas fas fa-plus" />
-					</span>
-					<span>New</span>
-				</button>
-			</div>
-		</nav>
-	);
-};
+export default class NavPanel extends Component {
+  
+  state = {
+    label: '',
+  }
 
-export default NavPanel;
+  onLabelChange = (e) => {
+    this.setState({
+      label: e.target.value,
+    })
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.onAdd(this.state.label);
+    this.setState({
+      label: '',
+    })
+  }
+
+  render() {
+
+    const {
+      count,
+      onRandomAdd,
+      isLoading,
+      onFilter,
+      filter,
+      onSearch,
+    } = this.props;
+
+    const { label } = this.state;
+
+    return (
+      <div className="nav-panel">
+        <nav className="nav-panel__nav">
+          <div className="nav-panel__inner">
+            <SearchPanel onSearch={onSearch}/>
+            <PostCount {...count}/>
+          </div>
+          <div className="nav-panel__row">
+            <RadioPanel onFilter={onFilter} filter={filter}/>
+          </div>
+        </nav>
+        <div>
+          <form
+            className="field has-addons nav-panel__form"
+            name='addForm'
+            onSubmit={this.onSubmit}>
+            <p className="control search-panel__input">
+              <input
+                className="input"
+                type="text" placeholder="Todo..."
+                onChange={this.onLabelChange}
+                value={label}/>
+            </p>
+            <p className="control">
+              <button
+                className="button is-primary">
+                <span className="icon is-small">
+                  <i className="fas fas fa-plus" />
+                </span>
+                <span>Add Todo</span>
+              </button>
+            </p>
+          </form>
+          <AddButton
+            type='is-info'
+            label='New random todo (by Fetch)'
+            loading={isLoading}
+            onAdd={onRandomAdd}/>
+        </div>
+      </div>
+    );
+  };
+}

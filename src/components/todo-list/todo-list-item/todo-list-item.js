@@ -4,10 +4,8 @@ export default class TodoListItem extends Component {
 
   render() {
 
-    const { label, important = false } = this.props;
+    const { label } = this.props;
 
-    const style = important ? 'has-text-link has-text-weight-semibold' : 'has-text-dark';
-
-    return <td className={style}>{ label }</td>;
+    return <td className='todo-list__cell todo-list__cell--label'>{ label }</td>;
   }
 }

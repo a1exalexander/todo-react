@@ -1,0 +1,16 @@
+.search-panel {
+  width: 100%;
+}
+
+.search-panel__input {
+  flex: 1 1;
+}
+
+@media screen and (min-width: 1024px) {
+  .search-panel {
+    width: auto;
+  }
+  .search-panel__input {
+    flex: 1 1 auto;
+  }
+}

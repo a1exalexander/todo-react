@@ -1,3 +1,9 @@
 * {
-  transition: all ease 0.2s;
+  transition-property: background-color, border-color, fill !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease !important;
+}
+
+.root-box {
+  padding: 24px;
 }

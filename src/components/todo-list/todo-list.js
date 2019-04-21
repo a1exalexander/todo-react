@@ -1,43 +1,71 @@
-import React from 'react'
+import React, { Component } from 'react';
 
 import TodoListItem from './todo-list-item';
+import TodoDone from './todo-done';
+import TodoDelete from './todo-delete';
+import TodoImportant from './todo-important';
 import './todo-list.css';
 
-const TodoList = ({ todos }) => {
+export default class TodoList extends Component {
 
-  const elements = todos.map((item, index) => {
+  render() {
 
-    const { id, ...itemProps } = item;
+    const { todos, onDeleted, onImportant, onDone } = this.props;
 
+    const elements = todos.map((item, index) => {
+      const { id, label, done, important } = item;
+
+      
+      let badgeDefault = '';
+
+      if (important) badgeDefault = 'is-warning';
+      if (done) badgeDefault = 'is-success';
+
+      const badge = `tag is-small ${badgeDefault}`;
+
+      let badgeText = 'active';
+
+      if (important) badgeText = 'important';
+      if (done) badgeText = 'done';
+
+      return (
+        <tr className="is-size-5" key={id}>
+          <td>{index}</td>
+          <td>
+            <span className={badge}>{badgeText}</span>
+          </td>
+          <TodoListItem label={label}/>
+          <td>
+            <TodoDelete onDeleted={() => onDeleted(id)}/>
+          </td>
+          <td>
+            <TodoImportant
+              onImportant={() => onImportant(id)}
+              important={important}/>
+          </td>
+          <td className="todo-list__cell">
+            <TodoDone
+              onDone={() => onDone(id)}
+              done={done}/>
+          </td>
+        </tr>
+      );
+    });
+  
     return (
-      <tr className='is-size-5' key={id}>
-        <td>{ index }</td>
-        <TodoListItem { ...itemProps } />
-        <td>
-          <button class="button is-danger">
-            <span class="icon is-small">
-              <i class="fas fa-trash-alt"></i>
-            </span>
-            <span>Delete</span>
-          </button>
-        </td>
-        <td>
-          <button class="button">
-            <span class="icon is-small">
-              <i class="fas fa-exclamation"></i>
-            </span>
-            <span>Active</span>
-          </button>
-        </td>
-      </tr>
+      <table className="table is-narrow is-fullwidth todo-list">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Status</th>
+            <th>Todo</th>
+            <th />
+            <th />
+            <th />
+          </tr>
+        </thead>
+        <tbody>{elements}</tbody>
+      </table>
     );
-  });
-
-	return (
-    <table className='table is-narrow is-fullwidth todo-list'>
-    { elements }
-    </table>
-	);
-};
-
-export default TodoList;
+  };
+}
