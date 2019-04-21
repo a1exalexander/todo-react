@@ -1,5 +1,6 @@
 Todo App
 -----
+
 by React (include ES5, ES6, ES7)
 
 [Demo](https://a1exalexander.github.io/todo-react/)
@@ -17,5 +18,10 @@ npm start
 
 ### Build for production
 ```
-npm build
+npm run build
+```
+
+### Deploy to gh-pages
+```
+npm run deploy
 ```
