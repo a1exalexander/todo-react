@@ -2,6 +2,7 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://a1exalexander.github.io/todo-react",
   "dependencies": {
     "bulma": "^0.7.4",
     "react": "^16.8.6",
